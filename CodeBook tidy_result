@@ -1,0 +1,72 @@
+CodeBook for tidy_result.txt
+=================================
+
+# Originated from UCI HAR Dataset
+The tidy_result.txt file is created by run_analysis.R using the UCI HAR Dataset. 
+
+# Description UCI HAR Experiment
+url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+ReadMe from UCI HAR: The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
+
+# Tidy Result procedure
+The result contains only variables from features containing information on the mean or the standard deviation. For every subset and 
+activity the average on the variable is calculated. Subsequently the data is transformed so the variables of the original dataset all appear in 
+one column called "feature" and the average scores for the unique combination of "subject" and "activity" are stored in the variable called
+"mean"
+
+## tidy_result variables
+The tidy_result.txt contains four variables: 
+- subject
+- activity
+- feature
+- mean
+
+### subject
+
+- Class: Numeric
+- Values: [1-30]
+- Meaning: subject ID (corresponding to volunteer in experiment)
+
+### activity
+
+- Class: Char
+- Values: 'laying', 'sitting', 'standing', 'walking', 'walking_downstairs', 'walking_upstairs'
+- Description: Name of the activity
+
+### feature
+
+- Class: Char
+- Values: 
+
+ [1] "time_body_acceleration-mean()-x"                   "time_body_acceleration-mean()-y"                   "time_body_acceleration-mean()-z"                  
+ [4] "time_body_acceleration-std()-x"                    "time_body_acceleration-std()-y"                    "time_body_acceleration-std()-z"                   
+ [7] "timegravity_acceleration-mean()-x"                 "timegravity_acceleration-mean()-y"                 "timegravity_acceleration-mean()-z"                
+[10] "timegravity_acceleration-std()-x"                  "timegravity_acceleration-std()-y"                  "timegravity_acceleration-std()-z"                 
+[13] "time_body_acceleration_jerk-mean()-x"              "time_body_acceleration_jerk-mean()-y"              "time_body_acceleration_jerk-mean()-z"             
+[16] "time_body_acceleration_jerk-std()-x"               "time_body_acceleration_jerk-std()-y"               "time_body_acceleration_jerk-std()-z"              
+[19] "time_body_gyro-mean()-x"                           "time_body_gyro-mean()-y"                           "time_body_gyro-mean()-z"                          
+[22] "time_body_gyro-std()-x"                            "time_body_gyro-std()-y"                            "time_body_gyro-std()-z"                           
+[25] "time_body_gyro_jerk-mean()-x"                      "time_body_gyro_jerk-mean()-y"                      "time_body_gyro_jerk-mean()-z"                     
+[28] "time_body_gyro_jerk-std()-x"                       "time_body_gyro_jerk-std()-y"                       "time_body_gyro_jerk-std()-z"                      
+[31] "time_body_acceleration_magnitude-mean()"           "time_body_acceleration_magnitude-std()"            "timegravity_acceleration_magnitude-mean()"        
+[34] "timegravity_acceleration_magnitude-std()"          "time_body_acceleration_jerk_magnitude-mean()"      "time_body_acceleration_jerk_magnitude-std()"      
+[37] "time_body_gyro_magnitude-mean()"                   "time_body_gyro_magnitude-std()"                    "time_body_gyro_jerk_magnitude-mean()"             
+[40] "time_body_gyro_jerk_magnitude-std()"               "freq_body_acceleration-mean()-x"                   "freq_body_acceleration-mean()-y"                  
+[43] "freq_body_acceleration-mean()-z"                   "freq_body_acceleration-std()-x"                    "freq_body_acceleration-std()-y"                   
+[46] "freq_body_acceleration-std()-z"                    "freq_body_acceleration_jerk-mean()-x"              "freq_body_acceleration_jerk-mean()-y"             
+[49] "freq_body_acceleration_jerk-mean()-z"              "freq_body_acceleration_jerk-std()-x"               "freq_body_acceleration_jerk-std()-y"              
+[52] "freq_body_acceleration_jerk-std()-z"               "freq_body_gyro-mean()-x"                           "freq_body_gyro-mean()-y"                          
+[55] "freq_body_gyro-mean()-z"                           "freq_body_gyro-std()-x"                            "freq_body_gyro-std()-y"                           
+[58] "freq_body_gyro-std()-z"                            "freq_body_acceleration_magnitude-mean()"           "freq_body_acceleration_magnitude-std()"           
+[61] "freq_body_body_acceleration_jerk_magnitude-mean()" "freq_body_body_acceleration_jerk_magnitude-std()"  "freq_body_body_gyro_magnitude-mean()"             
+[64] "freq_body_body_gyro_magnitude-std()"               "freq_body_body_gyro_jerk_magnitude-mean()"         "freq_body_body_gyro_jerk_magnitude-std()"
+
+- Description: Name of the feature that is measured
+
+### mean
+
+- Class: Numeric
+- Values: Real numbers
+- Description: Average score on the feature for a combination of a subject and an activity
+The mean of the.
